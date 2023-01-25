@@ -1,0 +1,74 @@
+#
+#
+#
+
+Databases: When interacting with a database you never actually talk directly
+to the database, only to the database management system (DBMS)
+
+Relational databases work like Excel, NoSQL databases are different 
+
+SQL - a language used to communicate with a DBMS 
+
+Postgres creates a database called Postgres, need to specify name of a DB 
+to connect to it 
+
+Postgres pwd: B*****y2****!
+Port: 5432
+
+Pagination - page-ifying stuff
+
+Object Relational Mapper (ORM) - abstract away SQL when interfacing with DB
+
+Want to be as strict as possible in terms of type of data received and output
+Pydantic model: define input variables to ensure correctness of request structure. 
+    We don't want to give users freedom to shape requests (and responses)
+SqlAlchemy model: defines what the tables and database schemas look like 
+
+
+query parameters are found after a '?' in a URL
+parameters are separated by '&'
+
+e.g. someurl.com/users?limit=10&search=name
+
+add spaces to url with %20
+
+#####
+
+environment variables 
+
+create in linux with
+export VAR_NAME="SOME_NAME"
+
+get with 
+echo $VAR_NAME
+
+environment variables come out as a string always
+
+See https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-joins/ for details on joins 
+
+example of join command:
+SELECT * FROM posts
+RIGHT JOIN users
+ON posts.owner_id = users.id;
+
+# Count the number of likes on a post
+SELECT posts.id, COUNT(votes.post_id) as likes FROM posts
+LEFT JOIN votes 
+ON posts.id = votes.post_id
+GROUP BY posts.id;
+
+
+Database migrations
+- can track code with git, why not with database models/tables
+- database migrations allow us to incrementally track changes to DB schemas and rollback 
+- Alembic for python
+- Alembic can also generate tables on the fly 
+- https://alembic.sqlalchemy.org/en/latest/
+
+run alembic with 
+
+"alembic init <dbname>"
+
+get commands with 
+
+"alembic --help"
