@@ -9,6 +9,10 @@ from app.database import engine
 
 # Run this with uvicorn app.main:app --reload
 
+# For heroku help run
+
+heroku apps:info 
+
 """
 
 # Connect to database
