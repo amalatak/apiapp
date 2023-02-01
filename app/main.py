@@ -13,6 +13,10 @@ from app.database import engine
 
 heroku apps:info 
 
+heroku login
+heroku run "alembic upgrade head"
+heroku ps:restart to restart the app
+
 """
 
 # Connect to database
