@@ -7,3 +7,13 @@ on:
     branches:
       - "main"
       - "another_way_to_list_branches"
+
+jobs: 
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: pulling git repo
+      # Find at github.com/marketplace/
+        uses: actions/checkout@v2
+      - name: say hi 
+        run: echo "Hello World!"
