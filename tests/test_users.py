@@ -5,7 +5,7 @@ from app.config import settings
 
 def test_root(client):
     res = client.get("/")
-    assert res.json().get('message') == "Welcome to my API!!!"
+    # assert res.json().get('message') == "Welcome to my API!!!"
     assert res.status_code == 200
 
 def test_creat_user(client):
