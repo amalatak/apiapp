@@ -1,0 +1,37 @@
+# Login to linux file system on container using 
+# docker exec -it <container_name> bash
+version: "3"
+services: 
+    api:
+        build: .
+        depends_on:
+            - postgres
+        ports: 
+            - 8000:8000
+        volumes:
+            # Bind mount to sync container folder with local folder; make it read only
+            # Still have to run 'down' then 'up'
+            - ./:/usr/src/app:ro
+        # env_file:
+        #     - ./.env
+        environment:
+            - DATABASE_HOSTNAME=localhost
+            - DATABASE_PORT=5432
+            - DATABASE_PASSWORD=Bentley23804!
+            - DATABASE_NAME=fastapi
+            - DATABASE_USERNAME=postgres
+            - SECRET_KEY=i45u39815u498g081h3g8hgdrkhwg983qkrjfhqewihealjkfndx
+            - ALGORITHM=HS256
+            - ACCESS_TOKEN_EXPIRE_MINUTES=60
+        command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    postgres:
+        image: postgres
+        environment: 
+            - POSTGRES_PASSWORD=Bentley23804!
+            - POSTGRES_DB=fastapi
+            # Volume is to make sure DB doesn't go down
+        volumes: 
+            - postgres-db:/var/lib/postgresql/data 
+
+volumes:
+    postgres-db: 

@@ -18,5 +18,7 @@ fi
 PS1='($VIRTUAL_ENV_NAME) \[\e[0;32m\]\u\[\e[m\]:\[\e[0;34m\]\w\[\e[m\]$ '
 
 export CLICOLOR=1
-export TRICK_HOME="${HOME}/trick"
-export PATH=${PATH}:${TRICK_HOME}/bin
+#export TRICK_HOME="${HOME}/trick"
+#export PATH=${PATH}:${TRICK_HOME}/bin
+#export PYTHONPATH="${PYTHONPATH}:./"
+#echo "yellow"

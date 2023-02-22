@@ -17,6 +17,8 @@ heroku login
 heroku run "alembic upgrade head"
 heroku ps:restart to restart the app
 
+git push heroku main to update heroku if basic changes made. Run the 'upgrade head' if DB updates
+
 """
 
 # Connect to database
@@ -42,7 +44,7 @@ app.add_middleware(
 
 @app.get('/')
 def root():
-    return {"message": "Welcome to my API!"}
+    return {"message": "Welcome to my API!!!"}
         
 app.include_router(post.router)
 app.include_router(user.router)

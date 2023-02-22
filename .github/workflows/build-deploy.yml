@@ -1,0 +1,9 @@
+name: Build and Deploy Code
+
+on: 
+  push: 
+    branches: ["main", "another_branch"]
+  pull_request:
+    branches:
+      - "main"
+      - "another_way_to_list_branches"

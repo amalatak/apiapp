@@ -22,8 +22,6 @@ def get_db():
     finally:
         db.close()
 
-
-
 # Connect to a database to run raw SQL
 def connect_to_database(db_host : str, db_name : str, db_user : str, db_pwd : str):
     while True:

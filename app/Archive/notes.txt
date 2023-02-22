@@ -72,3 +72,32 @@ run alembic with
 get commands with 
 
 "alembic --help"
+
+
+
+What is docker for
+
+
+CI/CD - Continuous integration / continuous delivery
+
+Manual steps ->
+ - Make changes to source code 
+ - Commit 
+
+CI ->
+ - Pull source code
+ - Install dependencies
+ - Run automated tests
+ - Build images (if using docker or related)
+
+CD ->
+ - Grab images/code 
+ - Update production
+
+Use GitHub actions for this for now
+
+All CI/CD platforms are very simple 
+ - provide a runner (a computer or virtual machine) that runs a bunch of 
+   commands we specify. Commands run off an event, usually a push/commit or scheduled 
+ - Runs with a yaml
+
