@@ -58,3 +58,28 @@ jobs:
         run: |
           pip install pytest
           pytest -v
+  deploy:
+    runs-on: ubuntu-latest
+    need: [build]
+    environment:
+      name: Production
+
+    steps:
+      - name: pulling git repo
+        uses: actions/checkout@v2
+      - name: deploying to heroku
+        uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+
+      # For heroku to run in CI/CD, which is a pain
+      # Pull github repo (since starting from scratch)
+      # Install heroku CLI
+      # heroku login
+      # add in remote in git for heroku
+      # git push heroku main
+      # Instead we're going to go to the github marketplace 
+
+  
