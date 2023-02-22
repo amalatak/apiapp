@@ -9,7 +9,7 @@ on:
       - "another_way_to_list_branches"
 
 jobs: 
-  job1:
+  build:
     environment: 
       name: Testing
     env: 
