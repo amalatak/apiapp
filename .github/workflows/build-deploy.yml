@@ -13,7 +13,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: pulling git repo
-      # Find at github.com/marketplace/
+      # Find at github.com/marketplace/actions/checkout
         uses: actions/checkout@v2
-      - name: say hi 
-        run: echo "Hello World!"
+      - name: Install python v3.9
+      # Find at actions/setup-python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+      - name: Update pip
+        uses: python -m pip install --upgrade pip
+      - name: Install all dependencies
+        uses: pip install -r requirements.txt
